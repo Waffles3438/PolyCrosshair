@@ -111,7 +111,6 @@ object CrosshairRenderer {
             if (mc.objectMouseOver == null) return WHITE
             if (mc.objectMouseOver.typeOfHit != MovingObjectPosition.MovingObjectType.ENTITY) return WHITE
             val entity = mc.objectMouseOver.entityHit ?: return WHITE
-            if (entity.isInvisible) return WHITE
             if (dynamicColor) {
                 if (hostile && entity is IMob) return hostileColor
                 if (passive && (entity is EntityVillager || entity is EntityAnimal || entity is EntityAmbientCreature || entity is EntityWaterMob)) return passiveColor
