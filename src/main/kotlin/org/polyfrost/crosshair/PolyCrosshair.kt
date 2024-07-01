@@ -7,6 +7,7 @@ import cc.polyfrost.oneconfig.libs.eventbus.Subscribe
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import org.polyfrost.crosshair.config.ModConfig
 import org.polyfrost.crosshair.render.CrosshairRenderer
 import java.io.File
@@ -33,6 +34,11 @@ object PolyCrosshair {
         ModConfig
         MinecraftForge.EVENT_BUS.register(CrosshairRenderer)
         EventManager.INSTANCE.register(this)
+    }
+
+    @Mod.EventHandler
+    fun onFMLPostInitialization(event: FMLPostInitializationEvent) {
+        CrosshairRenderer.updateVanilla()
     }
 
     @Subscribe
